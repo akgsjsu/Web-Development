@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Health Camp SPA</title>
+		
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            patientData=[];
+        </script>
+	</head>
+
+	<body>
+        <div>
+            <div id="nav-bar">
+                <ul class="nav nav-pills nav-fill navbar-dark flex-column flex-sm-row" style="background-color:#4679cc;">
+                    <li class="nav-item text-light text-sm-start">
+                        Health Camp SPA
+                    </li>
+                    <li class="nav-item text-sm-end">
+                        <button class="nav-link text-light" onclick="renderContents('demographics')">Demographics
+                        </button>
+                    </li>
+                    <li class="nav-item text-sm-end">
+                        <button class="nav-link text-light" onclick="renderContents('healthVitals')">HealthVitals
+                        </button>
+                    </li>
+                    <li class="nav-item text-sm-end">
+                        <button class="nav-link text-light" onclick="renderContents('reports')">Reports
+                        </button>
+                    </li>
+                </ul>     
+            </div>
+
+            <div id="content-container">
+<!--DemoGraphics Tab-->
+                <div class="container" id="demo">
+                    <div class="row p-2">
+                        <div class="col-md-6 col-xs-6">
+        
+                            <div class="row p-2 d-flex justify-content-end" style="margin-top: 50px;">
+                                <div class="col-md-4 col-xs-4">
+                                    <span>FirstName:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="fname">
+                                </div>
+                            </div>
+        
+                            <div class="row p-2 d-flex justify-content-end">
+                                <div class="col-md-4 col-xs-4">
+                                    <span>LastName:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="lname">
+                                </div>
+                            </div>
+        
+                            <div class="row  p-2 d-flex justify-content-end">
+                                <div class="col-md-4 col-xs-6">
+                                    <span>Gender:</span>
+                                </div>
+        
+                                <div class="col-md-6 col-xs-6">
+                                    <select name="gender" id="gender">
+                                        <option value=""></option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Non-Binary">Non-Binary</option>
+                                    </select>
+                                </div>
+                            </div>
+        
+        
+                            <div class="row  p-2 d-flex justify-content-end">
+                                <div class="col-md-4 col-xs-4">
+                                    <span>Age:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="age">
+                                </div>
+                            </div>
+        
+                            <div class="row p-2 d-flex justify-content-end">
+                                <div class="col-md-4 col-xs-4">
+                                    <span>Notes or Other Details:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="details">
+                                </div>
+                            </div>
+        
+                            <div class="row p-2">
+                                <div class="col-md-10 col-xs-10 d-flex justify-content-center text-success">
+                                    <input class="btn btn-success" type="button" name="save" value="Save" onclick="renderContents('healthVitals')">
+                                </div>
+                            </div>
+        
+                        </div>
+                    
+                        <div class="col-md-6 col-xs-6 border-start border-2 border-info">
+                            <div class="row" style="margin-top: 50px;">
+                                <span>Photo:</span>
+                            </div>
+        
+                            <div class="row p-2" >
+                            <canvas id="canvas" width="192" height="144" style="height:200px;width:200px"></canvas>
+                            <video id="video" width="192" height="144" autoplay hidden></video>
+                            <div class="row p-2">
+                                <div class="col-md-6 col-xs-6">
+                                    <input class="btn btn-success" type="button" name="capture" id="capture" value="Capture"  style="height:40px;width:100px">
+                                </div>
+                            </div>
+                            <script>clickPhoto();</script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--Health Vitals-->
+                <div class="container d-none" id="vitals">
+                    <div class="row p-2">
+                        <div class="col-md-6 col-xs-6">
+
+                            <div class="row p-2 d-flex justify-content-end" style="margin-top: 50px;">
+                                <div class="col-md-4 col-xs-4">
+                                    <span>Height:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="height">
+                                </div>
+                            </div>
+
+                            <div class="row p-2 d-flex justify-content-end">
+                                <div class="col-md-4 col-xs-4">
+                                    <span>Weight:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="weight">
+                                </div>
+                            </div>
+
+                            <div class="row  p-2 d-flex justify-content-end">
+                                <div class="col-md-4 col-xs-6">
+                                    <span>Body Temperature:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="bodyTemp">
+                                </div>  
+                            </div>
+
+
+                            <div class="row  p-2 d-flex justify-content-end">
+                                <div class="col-md-4 col-xs-4">
+                                    <span>Pulse Rate:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="pRate">
+                                </div>
+                            </div>
+
+                            <div class="row p-2 d-flex justify-content-end">
+                                <div class="col-md-4 col-xs-4">
+                                    <span>BP:</span>
+                                </div>
+                                <div class="col-md-6 col-xs-8">
+                                    <input type="text" id="bp">
+                                </div>
+                            </div>
+
+                            <div class="row p-2">
+                                <div class="col-md-10 col-xs-10 d-flex justify-content-center text-success">
+                                    <input class="btn btn-success" type="button" name="save" value="Save" onclick="save()">
+                                </div>
+                            </div>
+
+                        </div>
+                    
+                        <div class="col-md-6 col-xs-6 border-start border-2 border-info">
+                            <div class="row" style="margin-top: 50px;">
+                                <span>Medications:</span>
+                            </div>
+
+                            <div class="row p-2">
+                                <input type="text" id="med" style="width: 10rem; height: 5rem;">
+                            </div>
+
+                            <div class="row p-2">
+                                <span>Notes:</span>
+                            </div>
+
+                            <div class="row p-2">
+                                <input type="text" id="notes" style="width: 10rem; height: 5rem;">
+                            </div>
+                            
+                            <div class="row p-2">
+                                <span>Covid-19 vaccination (optional)</span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-10 col-xs-10">
+                                    <input type="file" name="image" id ="img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!--Report-->
+                <div id="reports" class="container d-none p-2">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 d-flex justify-content-center">
+                            <table id="table">
+                                <tr style="background-color:#4679cc;color: #ffffff;">
+                                    <th colspan="6">Patients Details </th>
+                                </tr>
+                                <tr style="background-color:#4679cc; color: #ffffff;">
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Photo</th>
+                                <th>Medications</th>
+                                <th>Notes</th>
+                                </tr>
+                                <tr id ="tbl_data">
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                        <div class="row p-2">
+                            <div class="col-md-6 col-xs-6 d-flex justify-content-end">
+                                <p>Covid-19 vaccination:</p>
+                            </div>
+                            <div class="col-md-6 col-xs-6 d-flex justify-content-start">
+                                <canvas id="vac" style="height:100px;width:200px; border:1px solid #d3d3d3;" ></canvas>
+                                <script>
+                                    vaccinationImage();
+                                </script>
+                            </div>
+                        </div>
+                    <div>
+                </div>
+            </div>
+        </div>
+		
+	</body>
+</html>

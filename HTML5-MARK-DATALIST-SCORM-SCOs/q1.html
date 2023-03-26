@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>User Login</title>
+
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+		<script type="text/javascript" src="script.js"></script>
+
+	</head>
+	<body>
+		<div class="jumbotron d-flex align-items-center min-vh-100">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-md-12 col-xs-12 border border-dark rounded">
+
+					<div class="row bg-opacity-50 bg-dark rounded-top p-1">
+						<div class="col-md-12 col-xs-12 d-flex justify-content-center">
+							<span>Question 1</span>
+						</div>
+					</div>
+
+					<div class="row d-flex justify-content-center mt-2">
+						<div class="col-md-6 col-xs-6">
+                            <div class="row mt-2">
+                                <span>Given points (x1,y1) and (x2,y2) select the formula to find the equation of the given line.</span>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="radio" name="ans" id="1">
+                                    <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi><mo>=</mo><mi>m</mi><mi>x</mi><mo>+</mo><mi>b</mi></math>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="radio" name="ans" id="2">
+                                    <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mo>(</mo><mi>x</mi><mo>-</mo><mi>h</mi><mo>)</mo><mn>2</mn></msup><mo>+</mo><mo>(</mo><mi>y</mi><mo>-</mo><mi>k</mi><mo>)</mo><mn>2</mn><mo>=</mo><mi>r</mi><mn>2</mn></math>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-2">
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="radio" name="ans" id="3">
+                                    <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi><mo>-</mo><mi>y</mi><mn>1</mn><mo>=</mo><mi>m</mi><mo>(</mo><mi>x</mi><mo>-</mo><mi>x</mi><mn>1</mn><mo>)</mo></math>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="radio" name="ans" id="4">
+                                    <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi><mo>-</mo><mi>y</mi><mn>2</mn><mo>=</mo><mfrac><mrow><mi>y</mi><mn>2</mn><mo>-</mo><mi>y</mi><mn>1</mn></mrow><mrow><mi>x</mi><mn>2</mn><mo>-</mo><mi>x</mi><mn>1</mn></mrow></mfrac><mo>(</mo><mi>x</mi><mo>-</mo><mi>x</mi><mn>2</mn><mo>)</mo></math>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">	
+                                <div class="col-md-6 col-xs-6">
+                                    <button onclick="q1Next()">Submit and Next Question</button>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <button onclick="q1Reset()">Cancel and Clear Selection</button>
+                                </div>
+                            </div>
+						</div>
+
+						<div class="col-md-6 col-xs-6">
+							<img src="img/1.jpg" class="img-thumbnail" width = "300" height="300">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

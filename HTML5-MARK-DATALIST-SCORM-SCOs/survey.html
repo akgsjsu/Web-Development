@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>User Login</title>
+
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+		<script type="text/javascript" src="script.js"></script>
+
+	</head>
+	<body>
+		<div class="jumbotron d-flex align-items-center min-vh-100">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-md-6 col-xs-12 border rounded">
+
+					<div class="row bg-opacity-50 bg-dark rounded-top p-1">
+						<div class="col-md-12 col-xs-12 d-flex justify-content-center">
+							<span> Survey</span>
+						</div>
+					</div>
+
+					<div class="row d-flex mt-2 mt-2">
+							<span>How did you like the center?</span>
+                    </div>
+
+                    <div class="row d-flex mt-2">
+                        <div class="col-md-2 col-xs-6">
+                            <span>Comments:</span>
+                        </div>
+                        <div class="col-md-1 col-xs-6">
+                            <textarea rows="4" cols="50" class="textbox" id="30"></textarea>
+                        </div>
+					</div>
+					
+					<div class="row d-flex justify-content-center mt-2 mb-2">
+                        <span>Select Text Area Location:</span>
+                    </div>
+
+                    <div class="row  mt-2 mb-2">
+						<div class="col-md-1 col-xs-6">
+							<span>City:</span>
+                        </div>
+                        
+                        <div class="col-md-3 col-xs-6">
+                            <select name="city" id="city">
+                                <option value="San Jose">San Jose</option>
+                                <option value="San Fransisco">San Fransisco</option>
+                                <option value="Mountain View">Mountain View</option>
+                                <option value="Palo Alto">Palo Alto</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 col-xs-6 d-flex justify-content-end">
+                            <span>Room Number#:</span>
+                        </div>
+
+                        
+						<div class="col-md-3 col-xs-6">
+                            <select name="city" id="city">
+                                <option value="Room 210">Room 210</option>
+                                <option value="Room 110">Room 110</option>
+                                <option value="Room 410">Room 410</option>
+                                <option value="Room 337">Room 337</option>
+                            </select>
+						</div>
+
+					</div>
+
+                    <div class="row d-flex justify-content-center mt-2 mb-2">
+						<div class="col-md-5 col-xs-6">
+							<button onclick="surveyNext()">Submit and Get Score</button>
+                        </div>
+
+                        <div class="col-md-4 col-xs-6">
+							<button onclick="surveySkip()">Skip and Get Score</button>
+                        </div>
+                    </div>
+                    
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
